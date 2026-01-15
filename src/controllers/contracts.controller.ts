@@ -6,6 +6,7 @@ import contract4Service from '../services/contract4.service';
 import contract5Service from '../services/contract5.service';
 import contract6Service from '../services/contract6.service';
 import contract7Service from '../services/contract7.service';
+import s3Service from '../utilities/s3.service';
 import {
     Contract1RequestDto,
     Contract2RequestDto,
@@ -27,9 +28,11 @@ export class ContractsController {
             const data: Contract1RequestDto = req.body;
             const pdfBuffer = await contract1Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract1.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 1);
+            console.log(`Contract 1 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 1:', error);
             res.status(500).json({
@@ -49,9 +52,11 @@ export class ContractsController {
             const data: Contract2RequestDto = req.body;
             const pdfBuffer = await contract2Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract2.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 2);
+            console.log(`Contract 2 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 2:', error);
             res.status(500).json({
@@ -71,9 +76,11 @@ export class ContractsController {
             const data: Contract3RequestDto = req.body;
             const pdfBuffer = await contract3Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract3.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 3);
+            console.log(`Contract 3 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 3:', error);
             res.status(500).json({
@@ -93,9 +100,11 @@ export class ContractsController {
             const data: Contract4RequestDto = req.body;
             const pdfBuffer = await contract4Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract4.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 4);
+            console.log(`Contract 4 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 4:', error);
             res.status(500).json({
@@ -115,9 +124,11 @@ export class ContractsController {
             const data: Contract5RequestDto = req.body;
             const pdfBuffer = await contract5Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract5.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 5);
+            console.log(`Contract 5 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 5:', error);
             res.status(500).json({
@@ -137,9 +148,11 @@ export class ContractsController {
             const data: Contract6RequestDto = req.body;
             const pdfBuffer = await contract6Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract6.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 6);
+            console.log(`Contract 6 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 6:', error);
             res.status(500).json({
@@ -159,9 +172,11 @@ export class ContractsController {
             const data: Contract7RequestDto = req.body;
             const pdfBuffer = await contract7Service.generateContract(data);
 
-            res.setHeader('Content-Type', 'application/pdf');
-            res.setHeader('Content-Disposition', 'attachment; filename="contract7.pdf"');
-            res.send(pdfBuffer);
+            // Upload to S3
+            const s3Url = await s3Service.uploadPdf(pdfBuffer, 7);
+            console.log(`Contract 7 uploaded to S3: ${s3Url}`);
+
+            res.json({s3Url});
         } catch (error) {
             console.error('Error generating Contract 7:', error);
             res.status(500).json({
@@ -174,3 +189,4 @@ export class ContractsController {
 }
 
 export default new ContractsController();
+
