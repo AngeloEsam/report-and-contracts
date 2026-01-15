@@ -1,0 +1,804 @@
+/* ========================================
+   SAFETY ZONE CONTRACT STYLES
+   A bilingual Arabic/English contract form
+   ======================================== */
+
+/* ----------------------------------------
+   CSS CUSTOM PROPERTIES (Variables)
+   Easy to modify for theming
+---------------------------------------- */
+:root {
+    /* Color Palette */
+    --color-primary: #0891b2;
+    /* Teal/Cyan primary */
+    --color-primary-light: #06b6d4;
+    /* Lighter teal */
+    --color-primary-gradient: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+
+    --color-bg-page: #f8fafc;
+    /* Light gray page background */
+    --color-bg-white: #ffffff;
+    /* White background */
+    --color-bg-section: #EEEFF0;
+    /* Section content background */
+
+    --color-text-primary: #1e293b;
+    /* Dark text */
+    --color-text-secondary: #64748b;
+    /* Gray text for labels */
+    --color-text-value: #334155;
+    /* Value text color */
+    --color-text-light: #94a3b8;
+    /* Light gray text */
+
+    --color-border: #e2e8f0;
+    /* Border color */
+    --color-border-light: #f1f5f9;
+    /* Lighter border */
+
+    /* Section Border Colors */
+    --color-section-01: #991b1b;
+    --color-section-02: #1e40af;
+    /* Typography */
+    --font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.8125rem;
+    /* 13px */
+    --font-size-base: 0.875rem;
+    /* 14px */
+    --font-size-md: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    /* 4px */
+    --spacing-sm: 0.5rem;
+    /* 8px */
+    --spacing-md: 1rem;
+    /* 16px */
+    --spacing-lg: 1.5rem;
+    /* 24px */
+    --spacing-xl: 2rem;
+    /* 32px */
+    --spacing-2xl: 3rem;
+    /* 48px */
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Container */
+    --container-max-width: 800px;
+}
+
+/* ----------------------------------------
+   CSS RESET & BASE STYLES
+---------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----------------------------------------
+   MAIN CONTAINER
+---------------------------------------- */
+.contract-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+/* ----------------------------------------
+   DECORATIVE HEADER BANNER
+   Diagonal stripes above the logo
+---------------------------------------- */
+.header-banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-banner__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ----------------------------------------
+   HEADER SECTION
+   Contains logos and Safety Zone branding
+---------------------------------------- */
+.contract-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.header__logo {
+    flex-shrink: 0;
+}
+
+.header__logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header__branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.header__title-ar {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.header__title-en {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+/* ----------------------------------------
+   MAIN CONTENT AREA
+---------------------------------------- */
+.contract-content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* ----------------------------------------
+   SECTION STYLES
+   Each numbered section of the contract
+---------------------------------------- */
+.contract-section {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* Section Header - Gray bar with red right border */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-bg-section);
+    color: var(--color-text-primary);
+    border-right: 4px solid var(--color-section-01);
+    /* Default color */
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-header__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin-right: var(--spacing-2xl);
+    /* Add spacing between title group and number */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+}
+
+.section-header__title-en {
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+}
+
+.section-header__title-ar {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+.section-header__number {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+/* Section Content - Form fields area */
+.section-content {
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-white);
+    /* White background */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* ----------------------------------------
+   SECTION-SPECIFIC BORDER COLORS
+---------------------------------------- */
+#section-01 .section-header {
+    border-right-color: var(--color-section-01);
+}
+
+#section-02 .section-header {
+    border-right-color: var(--color-section-02);
+}
+
+#section-03 .section-header {
+    border-right-color: var(--color-section-03);
+}
+
+#section-04 .section-header {
+    border-right-color: var(--color-section-04);
+}
+
+#section-05 .section-header {
+    border-right-color: var(--color-section-05);
+}
+
+#section-06 .section-header {
+    border-right-color: var(--color-section-06);
+}
+
+#section-07 .section-header {
+    border-right-color: var(--color-section-07);
+}
+
+#section-08 .section-header {
+    border-right-color: var(--color-section-08);
+}
+
+#section-09 .section-header {
+    border-right-color: var(--color-section-09);
+}
+
+#section-10 .section-header {
+    border-right-color: var(--color-section-10);
+}
+
+#section-11 .section-header {
+    border-right-color: var(--color-section-11);
+}
+
+#section-12 .section-header {
+    border-right-color: var(--color-section-12);
+}
+
+/* ----------------------------------------
+   SIDE-BY-SIDE SECTIONS (11 & 12)
+---------------------------------------- */
+.sections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+@media screen and (max-width: 992px) {
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----------------------------------------
+   TABLE STYLES (for Section 09)
+---------------------------------------- */
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fee-table__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-weight: var(--font-weight-semibold);
+}
+
+.fee-table__header-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-sm);
+}
+
+.fee-table__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.fee-table__row:last-child {
+    border-bottom: none;
+}
+
+.fee-table__cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
+}
+
+.fee-table__cell-name {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.fee-table__cell-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-value);
+    text-align: center;
+    flex: 1;
+}
+
+.fee-table__cell-price {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+/* ----------------------------------------
+   TEXT CONTENT STYLES (for Section 10)
+---------------------------------------- */
+.section-content--text {
+    padding: 0;
+}
+
+.text-block {
+    margin-bottom: var(--spacing-lg);
+}
+
+.text-block:last-child {
+    margin-bottom: 0;
+}
+
+.text-block__title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    text-align: right;
+    direction: rtl;
+}
+
+/* Chapter title with light blue background - directly attached to header */
+.text-block--chapter {
+    margin-bottom: 0;
+}
+
+.text-block--chapter .text-block__title {
+    background-color: #FFF4F4;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.text-block__content {
+    font-size: var(--font-size-base);
+    color: var(--color-text-value);
+    line-height: 1.8;
+    text-align: right;
+    direction: rtl;
+}
+
+.text-block__list {
+    font-size: var(--font-size-base);
+    color: var(--color-text-value);
+    line-height: 1.8;
+    text-align: right;
+    direction: rtl;
+    list-style-type: disc;
+    padding-right: var(--spacing-lg);
+    margin: 0;
+}
+
+.text-block__list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.text-block__list--numbered {
+    list-style-type: decimal;
+}
+
+.text-block__note {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    font-weight: 400;
+    border-radius: var(--radius-sm);
+    direction: rtl;
+    text-align: right;
+}
+
+.text-block__note-icon {
+    color: #d97706;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+/* Important Note Box */
+.important-note {
+    margin-top: var(--spacing-md);
+    direction: rtl;
+    text-align: right;
+}
+
+.important-note__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.important-note__icon {
+    font-size: var(--font-size-xl);
+}
+
+.important-note__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+.important-note__content {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ----------------------------------------
+   FORM ROW STYLES
+   Rows containing form fields
+---------------------------------------- */
+.form-row {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+/* Multi-column row (2 columns) */
+.form-row--multi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+/* Triple-column row (3 columns) */
+.form-row--triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* Quad-column row (4 columns) */
+.form-row--quad {
+    display: grid;
+    grid-template-columns: 2.5fr 2fr 2.5fr 3fr;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.form-row--quad .form-field__label-en,
+.form-row--quad .form-field__label-ar {
+    width: 100%;
+}
+
+/* ----------------------------------------
+   FORM FIELD STYLES
+   Individual label-value pairs
+---------------------------------------- */
+.form-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+.form-field--full {
+    width: 100%;
+}
+
+/* English label (left side in RTL) */
+.form-field__label-en {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+    white-space: normal;
+    /* Allow wrapping */
+    width: 25%;
+    /* Balanced width */
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* Arabic label (right side in RTL) */
+.form-field__label-ar {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: 25%;
+    /* Balanced width */
+    text-align: right;
+    direction: rtl;
+}
+
+/* Field value (center) */
+.form-field__value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-value);
+    text-align: center;
+    /* flex: 1; */
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* ----------------------------------------
+   SECTION 09 - Fees Table Styles
+   Fixed column widths for aligned pricing
+---------------------------------------- */
+#section-09 .form-row--multi {
+    gap: var(--spacing-xl);
+}
+
+#section-09 .fee-table__header {
+    gap: var(--spacing-xl);
+}
+
+#section-09 .form-field {
+    display: grid;
+    grid-template-columns: 35% 12% 53%;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+#section-09 .form-field__label-en {
+    width: auto;
+    text-align: left;
+    font-size: 0.65rem;
+    line-height: 1.2;
+}
+
+#section-09 .form-field__label-ar {
+    width: auto;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.75rem;
+}
+
+#section-09 .form-field__value {
+    width: auto;
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+#section-09 .fee-table__header-cell {
+    display: grid;
+    grid-template-columns: 35% 12% 53%;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+#section-09 .fee-table__header-cell .form-field__label-en {
+    font-size: 0.65rem;
+}
+
+#section-09 .fee-table__header-cell .form-field__label-ar {
+    font-size: 0.65rem;
+    font-weight: var(--font-weight-medium);
+}
+
+#section-09 .fee-table__header-cell .form-field__value {
+    font-size: 0.7rem;
+}
+
+/* ----------------------------------------
+   RESPONSIVE DESIGN
+   Breakpoints for different screen sizes
+---------------------------------------- */
+
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+
+    .contract-header {
+        padding: var(--spacing-md);
+    }
+
+    .header__logo img {
+        height: 50px;
+    }
+
+    .header__title-ar {
+        font-size: var(--font-size-base);
+    }
+
+    .header__title-en {
+        font-size: var(--font-size-lg);
+    }
+
+    .section-header__title {
+        gap: var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Stack multi-column rows on tablet */
+    .form-row--multi,
+    .form-row--triple {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .form-row--multi .form-field,
+    .form-row--triple .form-field {
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px dashed var(--color-border-light);
+    }
+
+    .form-row--multi .form-field:last-child,
+    .form-row--triple .form-field:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    .contract-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .header__logo--left {
+        order: 1;
+    }
+
+    .header__branding {
+        order: 2;
+    }
+
+    .header__logo--right {
+        order: 3;
+    }
+
+    .header__logo img {
+        height: 45px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+
+    .section-header__title {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .section-header__number {
+        order: -1;
+    }
+
+    .contract-content {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .section-content {
+        padding: var(--spacing-sm);
+    }
+
+    /* Stack form fields vertically on mobile */
+    .form-field {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+
+    .form-field__label-en,
+    .form-field__label-ar {
+        text-align: center;
+    }
+
+    .form-field__value {
+        font-size: var(--font-size-md);
+        padding: var(--spacing-xs) 0;
+    }
+}
+
+/* ----------------------------------------
+   PRINT STYLES
+   Optimized for printing
+---------------------------------------- */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .contract-container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .section-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

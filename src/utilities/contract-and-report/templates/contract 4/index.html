@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Safety Zone Contract Document - عقد منصة منطقة السلامة">
+    <title>عرض سعر إصلاح وصيانة طفايات الحريق</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="contract-container">
+        <!-- Decorative Header Banner -->
+        <div class="header-banner">
+            <img src="images/shape.png" alt="Decorative Header" class="header-banner__image">
+        </div>
+
+        <!-- ========================================
+             HEADER SECTION - Logos and Branding
+        ======================================== -->
+        <header class="contract-header">
+            <div class="header__brand-group">
+
+                <div class="header__logo">
+                    <img src="images/Frame.png" alt="Safety Zone Logo - شعار منطقة السلامة">
+                </div>
+            </div>
+        </header>
+
+        <!-- ========================================
+             REPORT HEADER SECTION - Title and Details
+        ======================================== -->
+        <div class="report-header">
+            <!-- Left Side: Report Info -->
+            <div class="report-header__info">
+                <div class="report-info-row">
+                    <span class="report-info-value">[[firstRequestNumber]]</span>
+                    <span class="report-info-label">مرجع العقد:</span>
+                </div>
+                <div class="report-info-row">
+                    <span class="report-info-value">[[date]]</span>
+                    <span class="report-info-label">التاریخ</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Title -->
+            <div class="report-header__title-block">
+                <div class="report-header__titles">
+                    <h1 class="report-main-title">عرض سعر</h1>
+                    <h2 class="report-sub-title">إصلاح وصيانة طفايات الحريق</h2>
+                </div>
+                <div class="report-header__bar"></div>
+            </div>
+        </div>
+
+        <main class="contract-content">
+
+            <!-- ========================================
+                 FIRST SECTION: CONTRACT DATA (أولاً: بيانات العقد)
+            ======================================== -->
+            <section class="contract-section" id="section-01">
+                <!-- Header -->
+                <div class="section-header">
+                    <span class="section-header__title-en">Contract Data</span>
+                    <span class="section-header__title-ar">أولاً: بيانات العقد</span>
+                    <div class="section-header__bar bar-red"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="section-content">
+                    <!-- Row 1: Request Type -->
+                    <div class="data-row">
+                        <div class="data-field">
+                            <span class="data-label-en">Request Type</span>
+                            <span class="data-value">[[requestType]]</span>
+                            <span class="data-label-ar">نوع الطلب :</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Request Date & Request No -->
+                    <div class="data-row data-row--double">
+                        <div class="data-field">
+                            <span class="data-label-en">Request Date</span>
+                            <span class="data-value">[[requestDate]]</span>
+                            <span class="data-label-ar">التاريخ:</span>
+                        </div>
+                        <div class="data-field">
+                            <span class="data-label-en">Request No.</span>
+                            <span class="data-value">[[secondRequestNumber]]</span>
+                            <span class="data-label-ar">رقم الطلب:</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SECOND SECTION: FIRST PARTY (ثانياً: الطرف الأول)
+            ======================================== -->
+            <section class="contract-section" id="section-02">
+                <!-- Header -->
+                <div class="section-header">
+                    <span class="section-header__title-en">First party</span>
+                    <span class="section-header__title-ar">ثانياً: الطرف الاول</span>
+                    <div class="section-header__bar bar-blue"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="section-content">
+                    <!-- Row 1: Main Establishment Name -->
+                    <div class="data-row">
+                        <div class="data-field">
+                            <span class="data-label-en">Main Establishment Name</span>
+                            <span class="data-value">[[mainEstablishmentName]]</span>
+                            <span class="data-label-ar">اسم المنشأة الرئيسي:</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Sub-Establishment Name -->
+                    <div class="data-row">
+                        <div class="data-field">
+                            <span class="data-label-en">Sub-Establishment Name</span>
+                            <span class="data-value">[[subEstablishmentName]]</span>
+                            <span class="data-label-ar">اسم المنشأة الفرعي:</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Unified No & Area -->
+                    <div class="data-row data-row--double">
+                        <div class="data-field">
+                            <span class="data-label-en">Unified No.</span>
+                            <span class="data-value">[[unifiedNo]]</span>
+                            <span class="data-label-ar">الرقم الموحد:</span>
+                        </div>
+                        <div class="data-field">
+                            <span class="data-label-en">Area</span>
+                            <span class="data-value">[[area]]</span>
+                            <span class="data-label-ar">المساحة:</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Contract Notary & Site -->
+                    <div class="data-row data-row--double">
+                        <div class="data-field">
+                            <span class="data-label-en">Contract Notary</span>
+                            <span class="data-value">[[contractNotary]]</span>
+                            <span class="data-label-ar">موثّق العقد:</span>
+                        </div>
+                        <div class="data-field">
+                            <span class="data-label-en">The Site:</span>
+                            <span class="data-value">[[site]]</span>
+                            <span class="data-label-ar">الموقع:</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 THIRD SECTION: COST TABLE (ثالثاً: اجمالي التكلفة)
+            ======================================== -->
+            <section class="contract-section" id="section-03">
+                <!-- Header -->
+                <div class="section-header">
+                    <span class="section-header__title-en"></span> <!-- Empty EN title as per image -->
+                    <span class="section-header__title-ar">ثالثاً: اجمالي التكلفة التقديرية للأعطال الطفايات الحريق
+                        المستلمة من قبل العميل</span>
+                    <div class="section-header__bar bar-blue"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="section-content">
+                    <div class="cost-table">
+                        <!-- Table Header -->
+                        <div class="cost-table-header">
+                            <div class="header-cell">م</div>
+                            <div class="header-cell">بنود الإطفاء الحريق<span style="font-size: 0.7em">(Fire
+                                    Extinguishing Items)</span></div>
+                            <div class="header-cell">وصف العمل<span style="font-size: 0.7em">(Description)</span></div>
+                            <div class="header-cell">الكمية<span style="font-size: 0.7em">(Qty)</span></div>
+                            <div class="header-cell">السعة / الوحدة</div>
+                            <div class="header-cell">سعر الوحدة<span style="font-size: 0.7em">(Unit Price)</span></div>
+                            <div class="header-cell">الإجمالي<span style="font-size: 0.7em">(Total)</span></div>
+                        </div>
+
+                        [[costRows]]
+                    </div>
+
+                    <!-- Totals Summary -->
+                    <div class="table-summary">
+                        <div class="summary-row">
+                            <div class="summary-label">المجموع التقديري (غير شامل الضريبة)</div>
+                            <div class="summary-value">[[subTotal]]</div>
+                        </div>
+                        <div class="summary-row">
+                            <div class="summary-label">الضريبة (15%)</div>
+                            <div class="summary-value">[[tax]]</div>
+                        </div>
+                        <div class="summary-row summary-grand-total">
+                            <div class="summary-label">الإجمالي الكلي</div>
+                            <div class="summary-value">[[total]]</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 APPROVAL SECTION (ثالثاً: اعتماد العميل)
+            ======================================== -->
+            <section class="contract-section" id="section-approval">
+                <!-- Header -->
+                <div class="section-header">
+                    <span class="section-header__title-en" style="color: #333; font-weight: 500;">Customer Approval
+                        (First Party)</span>
+                    <span class="section-header__title-ar">رابعا: اعتماد العميل (الطرف الأول)</span>
+                    <div class="section-header__bar bar-red"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="section-content">
+                    <div class="approval-grid">
+                        <!-- Row 1: Name -->
+                        <div class="approval-row">
+                            <div class="approval-label-en">Name</div>
+                            <div class="approval-value-center">[[name]]</div>
+                            <div class="approval-label-ar">الاسم:</div>
+                        </div>
+                        <!-- Row 2: Signature -->
+                        <div class="approval-row">
+                            <div class="approval-label-en">Signature</div>
+                            <div class="approval-qr-container">
+                                <img src="[[consumerQRCode]]" alt="QR Code">
+                            </div>
+                            <div class="approval-label-ar">التوقيع:</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

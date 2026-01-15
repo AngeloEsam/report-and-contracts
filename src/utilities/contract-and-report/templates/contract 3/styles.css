@@ -1,0 +1,1641 @@
+/* ----------------------------------------
+   CSS CUSTOM PROPERTIES (Variables)
+---------------------------------------- */
+:root {
+    /* Color Palette */
+    --color-primary: #0891b2;
+    /* Teal/Cyan primary */
+    --color-primary-light: #06b6d4;
+    /* Lighter teal */
+    --color-primary-gradient: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+
+    --color-bg-page: #f8fafc;
+    /* Light gray page background */
+    --color-bg-white: #ffffff;
+    /* White background */
+    --color-bg-section: #EEEFF0;
+    /* Section content background */
+
+    --color-text-primary: #1e293b;
+    /* Dark text */
+    --color-text-secondary: #64748b;
+    /* Gray text for labels */
+    --color-text-value: #334155;
+    /* Value text color */
+    --color-text-light: #94a3b8;
+    /* Light gray text */
+
+    --color-border: #e2e8f0;
+    /* Border color */
+    --color-border-light: #f1f5f9;
+    /* Lighter border */
+
+    /* Section Border Colors */
+    --color-section-01: #991b1b;
+    --color-section-02: #1e40af;
+    /* Typography */
+    --font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.8125rem;
+    /* 13px */
+    --font-size-base: 0.875rem;
+    /* 14px */
+    --font-size-md: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    /* 4px */
+    --spacing-sm: 0.5rem;
+    /* 8px */
+    --spacing-md: 1rem;
+    /* 16px */
+    --spacing-lg: 1.5rem;
+    /* 24px */
+    --spacing-xl: 2rem;
+    /* 32px */
+    --spacing-2xl: 3rem;
+    /* 48px */
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Container */
+    --container-max-width: 800px;
+}
+
+/* ----------------------------------------
+   CSS RESET & BASE STYLES
+---------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ----------------------------------------
+   MAIN CONTAINER
+---------------------------------------- */
+.contract-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+/* ----------------------------------------
+   DECORATIVE HEADER BANNER
+   Diagonal stripes above the logo
+---------------------------------------- */
+.header-banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-banner__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ----------------------------------------
+   HEADER SECTION
+   Contains logos and Safety Zone branding
+---------------------------------------- */
+.contract-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 var(--spacing-xl) var(--spacing-2xl);
+    background-color: var(--color-bg-white);
+    position: relative;
+    top: -10px;
+}
+
+.header__brand-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header__logo {
+    flex-shrink: 0;
+}
+
+.header__logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header__branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.header__title-ar {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.header__title-en {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+/* ----------------------------------------
+   MAIN CONTENT AREA
+---------------------------------------- */
+.contract-content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* ----------------------------------------
+   SECTION STYLES
+   Each numbered section of the contract
+---------------------------------------- */
+.contract-section {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* Section Header - Gray bar with red right border */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-bg-section);
+    color: var(--color-text-primary);
+    border-right: 4px solid var(--color-section-01);
+    /* Default color */
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-header__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    margin-right: var(--spacing-2xl);
+    /* Add spacing between title group and number */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+}
+
+.section-header__title-en {
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+}
+
+.section-header__title-ar {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+.section-header__number {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+/* Section Content - Form fields area */
+.section-content {
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-white);
+    /* White background */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* ----------------------------------------
+   SECTION-SPECIFIC BORDER COLORS
+---------------------------------------- */
+#section-01 .section-header {
+    border-right-color: var(--color-section-01);
+}
+
+#section-02 .section-header {
+    border-right-color: var(--color-section-02);
+}
+
+/* ----------------------------------------
+   TEXT CONTENT STYLES (for Section 10)
+---------------------------------------- */
+.section-content--text {
+    padding: 0;
+}
+
+.text-block {
+    margin-bottom: var(--spacing-lg);
+}
+
+.text-block:last-child {
+    margin-bottom: 0;
+}
+
+.text-block__title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    text-align: right;
+    direction: rtl;
+}
+
+/* Chapter title with light blue background */
+.text-block--chapter {
+    margin-bottom: 0;
+}
+
+.text-block--chapter .text-block__title {
+    background-color: #FFF4F4;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.text-block__content {
+    font-size: var(--font-size-base);
+    color: var(--color-text-value);
+    line-height: 1.8;
+    text-align: right;
+    direction: rtl;
+}
+
+.text-block__list {
+    font-size: var(--font-size-base);
+    color: var(--color-text-value);
+    line-height: 1.8;
+    text-align: right;
+    direction: rtl;
+    list-style-type: disc;
+    padding-right: var(--spacing-lg);
+    margin: 0;
+}
+
+.text-block__list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.text-block__list--numbered {
+    list-style-type: decimal;
+}
+
+.text-block__note {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    font-weight: 400;
+    border-radius: var(--radius-sm);
+    direction: rtl;
+    text-align: right;
+}
+
+.text-block__note-icon {
+    color: #d97706;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+/* Important Note Box */
+.important-note {
+    margin-top: var(--spacing-md);
+    direction: rtl;
+    text-align: right;
+}
+
+.important-note__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.important-note__icon {
+    font-size: var(--font-size-xl);
+}
+
+.important-note__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+.important-note__content {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ----------------------------------------
+   FORM ROW STYLES
+   Rows containing form fields
+---------------------------------------- */
+.form-row {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+/* Multi-column row (2 columns) */
+.form-row--multi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+/* Triple-column row (3 columns) */
+.form-row--triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* Quad-column row (4 columns) */
+.form-row--quad {
+    display: grid;
+    grid-template-columns: 25% 20% 25% 30%;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+/* ----------------------------------------
+   FORM FIELD STYLES
+   Individual label-value pairs
+---------------------------------------- */
+.form-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+.form-field--full {
+    width: 100%;
+}
+
+/* English label (left side in RTL) */
+.form-field__label-en {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+    white-space: normal;
+    /* Allow wrapping */
+    width: 25%;
+    /* Balanced width */
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* Arabic label (right side in RTL) */
+.form-field__label-ar {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: 25%;
+    /* Balanced width */
+    text-align: right;
+}
+
+/* Field value (center) */
+.form-field__value {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-value);
+    text-align: center;
+    /* flex: 1; */
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* ----------------------------------------
+   REPORT HEADER SECTION
+   Title and Report Details
+---------------------------------------- */
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Align bottom to match image */
+    padding: 0 var(--spacing-xl) var(--spacing-sm);
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.report-header__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: 5px;
+    /* Alignment tweak */
+}
+
+.report-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    min-width: 250px;
+    direction: ltr;
+}
+
+.report-info-label {
+    font-size: var(--font-size-sm);
+    color: #9CA3AF;
+    font-weight: var(--font-weight-medium);
+}
+
+.report-info-value {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    font-weight: 800;
+    /* Extra bold */
+    font-family: sans-serif;
+}
+
+.report-header__title-block {
+    display: flex;
+    align-items: stretch;
+    gap: var(--spacing-md);
+}
+
+.report-header__titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.report-main-title {
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.report-sub-title {
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.report-header__bar {
+    width: 6px;
+    background-color: #034EA2;
+    border-radius: 2px;
+}
+
+/* ----------------------------------------
+   REPORT DATA SECTION (First Section)
+---------------------------------------- */
+.report-data-section {
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--color-bg-white);
+}
+
+.report-section-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    background-color: #F3F4F6;
+    margin-bottom: var(--spacing-md);
+    border-radius: 4px;
+    /* Slight radius */
+    overflow: hidden;
+}
+
+.report-section-titles {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.report-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.report-section-bar {
+    width: 6px;
+    background-color: #b91c1c;
+    /* Red color */
+}
+
+.report-data-grid {
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.report-data-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding: var(--spacing-sm) 0;
+}
+
+.report-data-row:last-child {
+    border-bottom: none;
+}
+
+.report-data-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+}
+
+.report-data-label {
+    font-size: var(--font-size-sm);
+    color: #4b5563;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.report-data-value {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    font-weight: 800;
+    text-align: right;
+}
+
+
+
+/* ----------------------------------------
+   RESPONSIVE DESIGN
+   Breakpoints for different screen sizes
+---------------------------------------- */
+
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+
+    .contract-header {
+        padding: var(--spacing-md);
+    }
+
+    .header__logo img {
+        height: 50px;
+    }
+
+    .header__title-ar {
+        font-size: var(--font-size-base);
+    }
+
+    .header__title-en {
+        font-size: var(--font-size-lg);
+    }
+
+    .section-header__title {
+        gap: var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Stack multi-column rows on tablet */
+    .form-row--multi,
+    .form-row--triple {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .form-row--multi .form-field,
+    .form-row--triple .form-field {
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px dashed var(--color-border-light);
+    }
+
+    .form-row--multi .form-field:last-child,
+    .form-row--triple .form-field:last-child {
+        border-bottom: none;
+    }
+
+    /* Fix Report Header Responsiveness */
+    .report-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+
+    .report-header__info {
+        width: 100%;
+        align-items: center;
+    }
+
+    .report-info-row {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .report-header__title-block {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .report-header__titles {
+        align-items: center;
+    }
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    .contract-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+
+
+    .header__logo img {
+        height: 45px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+
+    .section-header__title {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .section-header__number {
+        order: -1;
+    }
+
+    .contract-content {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .section-content {
+        padding: var(--spacing-sm);
+    }
+
+    /* Stack form fields vertically on mobile */
+    .form-field {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+
+    .form-field__label-en,
+    .form-field__label-ar {
+        text-align: center;
+    }
+
+    .form-field__value {
+        font-size: var(--font-size-md);
+        padding: var(--spacing-xs) 0;
+    }
+}
+
+/* ----------------------------------------
+   PRINT STYLES
+   Optimized for printing
+---------------------------------------- */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .contract-container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .section-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ----------------------------------------
+   SECOND SECTION: Technical Inspection List
+---------------------------------------- */
+.technical-inspection-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.inspection-subheader {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    direction: rtl;
+    text-align: right;
+    margin-bottom: var(--spacing-md);
+}
+
+.inspection-subtitle-ar {
+    font-size: var(--font-size-md);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.inspection-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    direction: rtl;
+}
+
+/* Header Row */
+.inspection-table__header {
+    display: flex;
+    background-color: transparent;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid #E5E7EB;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
+    color: #9CA3AF;
+    font-size: var(--font-size-sm);
+}
+
+.header-group-right {
+    display: flex;
+    flex: 1;
+    /* Adjust ratio based on content */
+    align-items: center;
+}
+
+.header-group-left {
+    display: flex;
+    flex: 1;
+    /* Adjust ratio based on content */
+    align-items: center;
+}
+
+/* Column Widths - Adjust to match visual proportions */
+.col-item {
+    flex: 2;
+    text-align: right;
+    padding-right: var(--spacing-md);
+}
+
+.col-total,
+.col-working,
+.col-broken {
+    width: 80px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.col-desc {
+    flex: 2;
+    /* Main description width */
+    text-align: right;
+    padding-right: var(--spacing-lg);
+}
+
+.col-class {
+    width: 100px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.col-status {
+    width: 80px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Data Rows */
+.inspection-table__row {
+    display: flex;
+    border-bottom: 1px solid #E5E7EB;
+    /* Determine height logic */
+    align-items: stretch;
+}
+
+.inspection-table__row:last-child {
+    border-bottom: none;
+}
+
+/* Summary Block (Right Side) */
+.row-summary {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.summary-col {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.summary-col.col-item {
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* Total/Working/Broken Columns */
+.summary-col.col-total {
+    font-size: 1.1rem;
+}
+
+.summary-col.col-working {
+    font-size: 1.1rem;
+}
+
+.summary-col.col-broken {
+    font-size: 1.1rem;
+}
+
+
+/* Details Block (Left Side) */
+.row-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-right: 1px solid #f3f4f6;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    min-height: 40px;
+}
+
+/* Background colors for detail rows */
+.detail-item.error-bg {
+    background-color: #FEF2F2;
+}
+
+.detail-col {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+/* Check/Cross Icons */
+.status-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.icon-check {
+    color: #16A34A;
+    /* Green text */
+    background-color: #DCFCE7;
+    /* Light green bg */
+    border: 1px solid #bbf7d0;
+}
+
+.icon-cross {
+    color: #DC2626;
+    /* Red text */
+    background-color: #FEE2E2;
+    /* Light red bg */
+    border: 1px solid #fecaca;
+}
+
+/* Responsive adjustments for the table */
+@media screen and (max-width: 900px) {
+    .inspection-table__header {
+        display: none;
+    }
+
+    .inspection-table__row {
+        flex-direction: column;
+    }
+
+    .row-summary {
+        background-color: #F9FAFB;
+        padding: var(--spacing-sm);
+        border-bottom: 1px dashed #E5E7EB;
+    }
+
+    .row-details {
+        border-right: none;
+    }
+
+    .header-group-right,
+    .header-group-left {
+        width: 100%;
+    }
+}
+
+/* ----------------------------------------
+   THIRD SECTION: Faults Documentation
+---------------------------------------- */
+.faults-documentation-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding-bottom: var(--spacing-lg);
+}
+
+.faults-content {
+    padding: 0 var(--spacing-xl);
+    direction: rtl;
+}
+
+.faults-note {
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.faults-note-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.faults-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.faults-grid__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--spacing-sm);
+    color: #9CA3AF;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+.faults-col-desc {
+    flex: 6;
+    text-align: center;
+}
+
+.faults-col-img {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.faults-grid__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.text-right {
+    text-align: right;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    padding-right: var(--spacing-xl);
+}
+
+.placeholder-container {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-image-file {
+    width: 60px;
+    height: auto;
+    display: block;
+    opacity: 0.6;
+}
+
+/* ----------------------------------------
+   FOURTH SECTION: Assembly Assessment
+---------------------------------------- */
+.assembly-assessment-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding-bottom: var(--spacing-lg);
+}
+
+.assembly-assessment-section .report-section-header {
+    margin: 0 var(--spacing-md);
+}
+
+.assembly-content {
+    padding: 0 var(--spacing-xl);
+    direction: rtl;
+}
+
+.assembly-header-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid #E5E7EB;
+    margin-bottom: var(--spacing-sm);
+    color: #9CA3AF;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+.assembly-col-criteria {
+    flex: 2;
+    text-align: right;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    padding-left: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+}
+
+.assembly-col-status {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.assembly-col-notes {
+    flex: 5;
+    text-align: right;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    padding-right: var(--spacing-lg);
+}
+
+.assembly-row {
+    display: flex;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.assembly-row:last-child {
+    border-bottom: none;
+}
+
+.status-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Group items at the end (Left in RTL) */
+    gap: var(--spacing-sm);
+    min-height: 24px;
+    width: 100%;
+    /* Ensure it takes full width */
+}
+
+.checkbox-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D1D5DB;
+    /* Grey border */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+}
+
+.checkbox-box.checked {
+    border-color: #D1D5DB;
+    color: #16A34A;
+    font-weight: bold;
+}
+
+.option-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.criteria-text {
+    line-height: 1.4;
+}
+
+.spacer-top-2 {
+    margin-top: 32px;
+}
+
+.recommendation-row {
+    padding-top: var(--spacing-lg);
+}
+
+.assembly-col-full {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+}
+
+.rec-title {
+    font-weight: 800;
+    color: var(--color-text-primary);
+}
+
+.rec-text {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Responsive adjustments for Section 4 */
+@media screen and (max-width: 900px) {
+    .assembly-header-row {
+        display: none;
+    }
+
+    .assembly-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+        border-bottom: 2px solid white;
+    }
+
+    .assembly-col-criteria,
+    .assembly-col-status,
+    .assembly-col-notes {
+        width: 100%;
+        text-align: right;
+        padding-left: 0;
+        padding-right: 0;
+        flex: auto;
+    }
+
+    .assembly-col-status {
+        padding: var(--spacing-sm) 0;
+        border-top: 1px dashed #E5E7EB;
+        border-bottom: 1px dashed #E5E7EB;
+    }
+
+    .status-option {
+        justify-content: flex-end;
+    }
+
+    .assembly-col-full {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+}
+
+/* ----------------------------------------
+   FIFTH SECTION: Recommendations
+---------------------------------------- */
+.recommendations-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding-bottom: var(--spacing-lg);
+}
+
+.recommendations-section .report-section-header {
+    margin: 0 var(--spacing-md);
+}
+
+.recommendations-content {
+    padding: 0 var(--spacing-xl);
+    direction: rtl;
+    color: var(--color-text-secondary);
+}
+
+.rec-subsection {
+    margin-bottom: var(--spacing-lg);
+}
+
+.rec-subtitle {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.rec-group {
+    margin-bottom: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+.rec-group-title {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.rec-list {
+    list-style-type: decimal;
+    padding-right: var(--spacing-lg);
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+.rec-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.rec-list.spaced-list li {
+    margin-bottom: var(--spacing-md);
+    /* More space for the recommendations part */
+}
+
+.priority-line {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.checkbox-box.checked-green {
+    background-color: #16A34A;
+    /* Green background */
+    border-color: #16A34A;
+    color: white;
+}
+
+/* ----------------------------------------
+   SIXTH SECTION: Authentication
+---------------------------------------- */
+.auth-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding-bottom: var(--spacing-lg);
+}
+
+.auth-section .report-section-header {
+    margin: 0 var(--spacing-md);
+}
+
+.auth-content {
+    padding: 0 var(--spacing-xl);
+    direction: rtl;
+}
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+}
+
+.auth-party {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.auth-party-title {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.auth-field {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2xl);
+}
+
+.auth-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.auth-value {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.auth-signature {
+    display: flex;
+    align-items: flex-start;
+}
+
+.qr-code-img {
+    width: 100px;
+    height: auto;
+}
+
+/* Responsive for Section 6 */
+@media screen and (max-width: 768px) {
+    .auth-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ----------------------------------------
+   FOURTH SECTION: Assembly Point Assessment
+   Multi-option checkbox layout matching exact design
+---------------------------------------- */
+.assembly-assessment-section {
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.assembly-content {
+    padding: 0 var(--spacing-md);
+    direction: rtl;
+}
+
+/* Assembly Table Header Row - 3 columns */
+.assembly-header-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 1.5fr;
+    gap: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: #f9fafb;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.assembly-header-row .assembly-col-criteria {
+    text-align: right;
+}
+
+.assembly-header-row .assembly-col-status {
+    text-align: center;
+}
+
+.assembly-header-row .assembly-col-notes {
+    text-align: left;
+}
+
+/* Criteria Block - Contains title + all options */
+.assembly-criteria-block {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.assembly-criteria-block:last-of-type {
+    border-bottom: none;
+}
+
+/* Criteria Title - Spans vertically */
+.assembly-criteria-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: var(--spacing-md);
+    padding-left: var(--spacing-sm);
+    border-left: 1px solid var(--color-border-light);
+}
+
+.assembly-criteria-title span {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    text-align: right;
+    line-height: 1.5;
+}
+
+/* Options List Container */
+.assembly-options-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each Option Row */
+.assembly-option-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-light);
+    align-items: center;
+}
+
+.assembly-option-row:last-child {
+    border-bottom: none;
+}
+
+.assembly-option-row.hidden {
+    display: none;
+}
+
+/* Status Column - Checkbox + Label */
+.assembly-option-status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+}
+
+.option-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-align: right;
+}
+
+/* Checkbox Styling */
+.option-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.option-checkbox.checked {
+    background-color: #16A34A;
+    border-color: #16A34A;
+}
+
+.option-checkbox.checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.option-checkbox.unchecked {
+    background-color: white;
+    border-color: #d1d5db;
+}
+
+/* Notes Column */
+.assembly-option-notes {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-align: left;
+    padding-right: var(--spacing-md);
+    line-height: 1.5;
+}
+
+/* Recommendation Row (Full Width) */
+.recommendation-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    padding: var(--spacing-md);
+    background-color: #fafafa;
+    border-top: 1px solid var(--color-border);
+}
+
+.assembly-col-full {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-xl);
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.rec-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+}
+
+.rec-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    text-align: right;
+    flex: 1;
+}
+
+/* Responsive for Assembly Section */
+@media screen and (max-width: 768px) {
+    .assembly-header-row {
+        grid-template-columns: 1fr;
+        text-align: right;
+    }
+
+    .assembly-criteria-block {
+        grid-template-columns: 1fr;
+    }
+
+    .assembly-criteria-title {
+        border-left: none;
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .assembly-option-row {
+        grid-template-columns: 1fr;
+    }
+
+    .assembly-option-notes {
+        text-align: right;
+        padding-right: 0;
+        padding-top: var(--spacing-xs);
+    }
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Safety Zone Contract Document - عقد منصة منطقة السلامة">
+    <title>التقرير الهندسي للزيارة الفنية</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="contract-container">
+        <!-- Decorative Header Banner -->
+        <div class="header-banner">
+            <img src="images/shape.png" alt="Decorative Header" class="header-banner__image">
+        </div>
+
+        <!-- ========================================
+             HEADER SECTION - Logos and Branding
+        ======================================== -->
+        <header class="contract-header">
+            <div class="header__brand-group">
+
+                <div class="header__logo">
+                    <img src="images/Frame.png" alt="Safety Zone Logo - شعار منطقة السلامة">
+                </div>
+            </div>
+        </header>
+
+        <!-- ========================================
+             REPORT HEADER SECTION - Title and Details
+        ======================================== -->
+        <div class="report-header">
+            <!-- Left Side: Report Info -->
+            <div class="report-header__info">
+                <div class="report-info-row">
+                    <span class="report-info-value">[[reportNumber]]</span>
+                    <span class="report-info-label">:رقم التقرير</span>
+                </div>
+                <div class="report-info-row">
+                    <span class="report-info-value">[[firstReportDate]]</span>
+                    <span class="report-info-label">:تاريخ الزيارة</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Title -->
+            <div class="report-header__title-block">
+                <div class="report-header__titles">
+                    <h1 class="report-main-title">التقرير الهندسي للزيارة الفنية</h1>
+                    <h2 class="report-sub-title">الدورية لأنظمة السلامة ومكافحة الحريق</h2>
+                </div>
+                <div class="report-header__bar"></div>
+            </div>
+        </div>
+
+        <main class="contract-content">
+
+            <!-- ========================================
+                 FIRST SECTION: REPORT DATA (أولاً: بيانات التقرير)
+            ======================================== -->
+            <section class="report-data-section">
+                <!-- Header -->
+                <div class="report-section-header">
+                    <div class="report-section-titles">
+                        <h3 class="report-section-title">أولاً: بيانات التقرير</h3>
+                    </div>
+                    <div class="report-section-bar"></div>
+                </div>
+
+                <!-- Content Grid - 4 rows, 2 columns each -->
+                <div class="report-data-grid">
+                    <!-- Row 1: اسم المنشأة الرئيسي | اسم الفرع -->
+                    <div class="report-data-row">
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[branchName]]</span>
+                            <span class="report-data-label">:اسم الفرع</span>
+                        </div>
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[mainCompanyName]]</span>
+                            <span class="report-data-label">:اسم المنشأة الرئيسي</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: الرقم الموحد | المساحة -->
+                    <div class="report-data-row">
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[area]]</span>
+                            <span class="report-data-label">:المساحة</span>
+                        </div>
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[unifiedNumber]]</span>
+                            <span class="report-data-label">:الرقم الموحد</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: نوع النظام | حالة السلامة العامة -->
+                    <div class="report-data-row">
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[generalSafetyStatus]]</span>
+                            <span class="report-data-label">:حالة السلامة العامة</span>
+                        </div>
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[systemType]]</span>
+                            <span class="report-data-label">:نوع النظام</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: اسم مزود الخدمة | مهندس الفحص -->
+                    <div class="report-data-row">
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[firstEngineerName]]</span>
+                            <span class="report-data-label">:مهندس الفحص</span>
+                        </div>
+                        <div class="report-data-item">
+                            <span class="report-data-value">[[serviceProviderName]]</span>
+                            <span class="report-data-label">:اسم مزود الخدمة</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================
+                 SECOND SECTION: Technical Inspection List
+            ======================================== -->
+            <section class="technical-inspection-section">
+                <!-- Main Header -->
+                <div class="report-section-header">
+                    <div class="report-section-titles">
+                        <h3 class="report-section-title">ثانيًا: قائمة التدقيق الفني التفصيلية والإحصائية</h3>
+                    </div>
+                    <div class="report-section-bar"></div>
+                </div>
+
+                <!-- Sub Header -->
+                <div class="inspection-subheader">
+                    <h4 class="inspection-subtitle-ar">1. نظام الإنذار المبكر (Fire Alarm System)</h4>
+                </div>
+
+                <!-- Inspection Table Container -->
+                <div class="inspection-table">
+                    <!-- Table Header -->
+                    <div class="inspection-table__header">
+                        <!-- Right Side (Summary) -->
+                        <div class="header-group-right">
+                            <div class="header-col col-item">العنصر (Item)</div>
+                            <div class="header-col col-total">العدد الكلي</div>
+                            <div class="header-col col-working">السليم</div>
+                            <div class="header-col col-broken">المعطل</div>
+                        </div>
+                        <!-- Left Side (Details) -->
+                        <div class="header-group-left">
+                            <div class="header-col col-desc">قائمة التدقيق الفني</div>
+                            <div class="header-col col-class">تصنيف الأعطال</div>
+                            <div class="header-col col-status">ضع ✓ أو ✕</div>
+                        </div>
+                    </div>
+
+                    [[inspectionAlarm]]
+
+                </div>
+
+                <!-- Sub Header 2 -->
+                <div class="inspection-subheader">
+                    <h4 class="inspection-subtitle-ar">2. نظام مكافحة الحريق (Fire Fighting System)</h4>
+                </div>
+
+                <!-- Inspection Table Container 2 -->
+                <div class="inspection-table">
+                    [[inspectionFighting]]
+
+                </div>
+
+                <!-- Sub Header 3 -->
+                <div class="inspection-subheader">
+                    <h4 class="inspection-subtitle-ar">3. الهروب والسلامة الإضافية</h4>
+                </div>
+
+                <!-- Inspection Table Container 3 -->
+                <div class="inspection-table">
+                    [[inspectionEscape]]
+                </div>
+            </section>
+
+            <!-- ========================================
+                 THIRD SECTION: Faults Documentation
+            ======================================== -->
+            <section class="faults-documentation-section">
+                <!-- Header -->
+                <div class="report-section-header">
+                    <div class="report-section-titles">
+                        <h3 class="report-section-title">ثالثاً: توثيق الأعطال والصور الفوتوغرافية</h3>
+                    </div>
+                    <div class="report-section-bar"></div>
+                </div>
+
+                <div class="faults-content">
+                    <!-- Note -->
+                    <div class="faults-note">
+                        <p class="faults-note-text">• ملاحظة ( تكون الصورة ثم اسم العنصر ثم قائمة التدقيق الفني ثم
+                            الموقع )</p>
+                    </div>
+
+                    <!-- Faults Grid -->
+                    <!-- Faults Grid -->
+                    <div class="faults-grid">
+                        <!-- Headings -->
+                        <div class="faults-grid__header">
+                            <div class="faults-col-img">الصوره</div>
+                            <div class="faults-col-desc">الوصف</div>
+                        </div>
+
+                        [[faults]]
+                    </div>
+                </div>
+            </section>
+        </main>
+        </section>
+
+        <!-- ========================================
+                 FOURTH SECTION: Assembly Point Assessment
+            ======================================== -->
+        <section class="assembly-assessment-section">
+            <!-- Header -->
+            <div class="report-section-header">
+                <div class="report-section-titles">
+                    <h3 class="report-section-title">رابعاً: تقييم نقطة التجمع والهروب</h3>
+                </div>
+                <div class="report-section-bar"></div>
+            </div>
+
+            <div class="assembly-content">
+                <!-- Table Header -->
+                <div class="assembly-header-row">
+                    <div class="assembly-col-criteria">معيار التقييم</div>
+                    <div class="assembly-col-status">الحالة (اختر واحدة)</div>
+                    <div class="assembly-col-notes">الملاحظات الهندسية (Engineer's Notes)</div>
+                </div>
+
+                [[assembly]]
+
+                <!-- Row 3: Recommendation -->
+                <div class="assembly-row recommendation-row">
+                    <div class="assembly-col-full">
+                        <span class="rec-title">توصية رئيسية</span>
+                        <span class="rec-text">وضع علامات إضافية على الأرضية لتنظيم حركة السير في المنطقة المحيطة بنقطة
+                            التجمع</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        </main>
+        </section>
+
+        <!-- ========================================
+                 FIFTH SECTION: Engineering Recommendations
+            ======================================== -->
+        <section class="recommendations-section">
+            <!-- Header -->
+            <div class="report-section-header">
+                <div class="report-section-titles">
+                    <h3 class="report-section-title">خامساً: الملاحظات والتوصيات الهندسية</h3>
+                </div>
+                <div class="report-section-bar"></div>
+            </div>
+
+            <div class="recommendations-content">
+
+                <!-- 1. Detailed Observations -->
+                <div class="rec-subsection">
+                    <h4 class="rec-subtitle">1. الملاحظات الفنية (Observations Detailed)</h4>
+
+                    <div class="rec-group">
+                        <h5 class="rec-group-title">نظام الإنذار:</h5>
+                        <ol class="rec-list">
+                            <li>تعطل بطاريات لوحة التحكم ووجود إشارات أعطال (Trouble) نشطة.</li>
+                            <li>تعطل (150) كاشف دخان و(50) كاشف حرارة، بالإضافة إلى تراكم الغبار والأتربة على الكواشف.
+                            </li>
+                            <li>عدم صلاحية (20) كاسر زجاج و(20) جرس إنذار بسبب سوء التوصيلات أو تعطل الأجهزة.</li>
+                        </ol>
+                    </div>
+
+                    <div class="rec-group">
+                        <h5 class="rec-group-title">نظام مكافحة الحريق:</h5>
+                        <ol class="rec-list">
+                            <li>وجود تسربات مياه في مضخة الجوكي ولوحة تحكمها لا تعمل بشكل سليم.</li>
+                            <li>انخفاض مستوى الوقود في مضخة الديزل.</li>
+                            <li>رصد (140) نقطة تسريب مياه في شبكة الرشاشات.</li>
+                            <li>وجود (25) طفاية حريق بودرة ضغطها غير سليم (خارج المنطقة الخضراء) ومسامير الأمان بها
+                                تالفة.</li>
+                        </ol>
+                    </div>
+
+                    <div class="rec-group">
+                        <h5 class="rec-group-title">مخارج الطوارئ:</h5>
+                        <ol class="rec-list">
+                            <li>عدم ثبات هيكل لوحة خروج (Exit) واحدة.</li>
+                            <li>وجود (8) عوائق في مسار الهروب تعيق عملية الإخلاء.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 2. Recommendations -->
+                <div class="rec-subsection">
+                    <h4 class="rec-subtitle">2. التوصيات والإجراءات التصحيحية المطلوبة (Actions Corrective &
+                        Recommendations)</h4>
+
+                    <div class="priority-line">
+                        <div class="checkbox-box checked-green">✓</div>
+                        <span class="priority-text">[ أولوية عاجلة (Priority High) ] | [ صيانة دورية (Maintenance
+                            Routine) ]</span>
+                    </div>
+
+                    <ol class="rec-list spaced-list">
+                        <li>الإصلاح الفوري لنظام الإنذار: يجب استبدال البطاريات التالفة فوراً، وإجراء تنظيف شامل لجميع
+                            الكواشف، واستبدال الأجهزة المتعطلة لضمان استجابة النظام للحريق.</li>
+                        <li>معالجة شبكة المياه والمضخات: البدء فوراً في إصلاح تسريبات شبكة الرشاشات ومضخة الجوكي لمنع
+                            هدر المياه وضمان ضغط الشبكة، مع ضرورة تعبئة وقود مضخة الديزل.</li>
+                        <li>صيانة طفايات الحريق: استبدال أو إعادة تعبئة طفايات الحريق التي أظهرت قراءة ضغط غير سليمة
+                            والتأكد من سلامة مسامير الأمان.</li>
+                        <li>تأمين مسارات الهروب: إزالة كافة العوائق من مسارات الهروب فوراً لضمان سلامة الأرواح، وتثبيت
+                            لوحات المخرج المرتخية.</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================
+                 SIXTH SECTION: Documentation and Authentication
+            ======================================== -->
+        <section class="auth-section">
+            <!-- Header -->
+            <div class="report-section-header">
+                <div class="report-section-titles">
+                    <h3 class="report-section-title">سادساً : التوثيق والمصادقة</h3>
+                </div>
+                <div class="report-section-bar"></div>
+            </div>
+
+            <div class="auth-content">
+                <!-- Two Column Layout -->
+                <div class="auth-grid">
+                    <!-- Party 1: Client -->
+                    <div class="auth-party">
+                        <h4 class="auth-party-title">الطرف الأول (المعتمد من الموقع/العميل)</h4>
+                        <div class="auth-field">
+                            <span class="auth-label">الاسم:</span>
+                            <span class="auth-value">[[clientName]]</span>
+                        </div>
+                        <div class="auth-field">
+                            <span class="auth-label">تاريخ المصادقة:</span>
+                            <span class="auth-value">[[approvalDate]]</span>
+                        </div>
+                        <div class="auth-field">
+                            <span class="auth-label">التوقيع:</span>
+                            <div class="auth-signature">
+                                <img src="[[consumerQRCode]]" alt="QR Code" class="qr-code-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Party 2: Engineer -->
+                    <div class="auth-party">
+                        <h4 class="auth-party-title">الطرف الثاني (المهندس الفاحص)</h4>
+                        <div class="auth-field">
+                            <span class="auth-label">الاسم:</span>
+                            <span class="auth-value">[[secondEngineerName]]</span>
+                        </div>
+                        <div class="auth-field">
+                            <span class="auth-label">تاريخ اصدار التقرير:</span>
+                            <span class="auth-value">[[secondReportDate]]</span>
+                        </div>
+                        <div class="auth-field">
+                            <span class="auth-label">التوقيع:</span>
+                            <div class="auth-signature">
+                                <img src="[[providerQRCode]]" alt="QR Code" class="qr-code-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+    </div>
+</body>
+
+</html>

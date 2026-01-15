@@ -1,0 +1,820 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES (Variables)
+======================================== */
+:root {
+    /* Color Palette */
+    --color-primary: #0891b2;
+    --color-primary-light: #06b6d4;
+
+    --color-bg-page: #f8fafc;
+    --color-bg-white: #ffffff;
+    --color-bg-section: #EEEFF0;
+    --color-header-gray: #EEEFF1;
+
+    --color-text-primary: #1e293b;
+    --color-text-secondary: #64748b;
+    --color-text-value: #334155;
+    --color-text-label-en: #A1A1AA;
+    /* Light Gray for English Labels */
+
+    --color-border: #e2e8f0;
+    --color-border-light: #f1f5f9;
+
+    /* Typography */
+    --font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.8125rem;
+    --font-size-base: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Shadows */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Container */
+    --container-max-width: 800px;
+}
+
+/* ========================================
+   CSS RESET & BASE STYLES
+======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+.contract-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+/* ========================================
+   DECORATIVE HEADER BANNER
+======================================== */
+.header-banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-banner__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ========================================
+   HEADER SECTION - Logo
+======================================== */
+.contract-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 var(--spacing-xl) var(--spacing-2xl);
+    background-color: var(--color-bg-white);
+    position: relative;
+    top: -10px;
+}
+
+.header__brand-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header__logo {
+    flex-shrink: 0;
+}
+
+.header__logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ========================================
+   MAIN CONTENT AREA
+======================================== */
+.contract-content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* ========================================
+   REPORT HEADER - Title and Details
+======================================== */
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 var(--spacing-xl) var(--spacing-sm);
+    background-color: var(--color-bg-white);
+    margin-bottom: var(--spacing-md);
+}
+
+.report-header__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: 5px;
+}
+
+.report-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    min-width: 250px;
+    direction: ltr;
+}
+
+.report-info-label {
+    font-size: var(--font-size-sm);
+    color: #9CA3AF;
+    font-weight: var(--font-weight-medium);
+}
+
+.report-info-value {
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    font-weight: 800;
+    font-family: sans-serif;
+}
+
+.report-header__title-block {
+    display: flex;
+    align-items: stretch;
+    gap: var(--spacing-md);
+}
+
+.report-header__titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.report-main-title {
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.report-sub-title {
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.report-header__bar {
+    width: 6px;
+    background-color: #034EA2;
+    border-radius: 2px;
+}
+
+
+/* ========================================
+   NEW SECTION STYLES (MATCHING IMAGE)
+======================================== */
+.contract-section {
+    margin-bottom: 30px;
+    background-color: var(--color-bg-white);
+}
+
+/* New Section Header (Gray Bar) */
+.new-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: var(--color-header-gray);
+    /* Light gray background */
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding: 0;
+    /* Important: padding handled by children for alignment */
+    height: 50px;
+    /* Fixed height for consistency */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-xl);
+}
+
+.header-en {
+    font-size: 1.25rem;
+    color: #4b5563;
+    /* Header Dark Gray */
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Spacing between Arabic text and Number/Bar */
+    padding-right: 0;
+    /* Bar is absolute or flexed at edge */
+    position: relative;
+}
+
+.header-ar {
+    font-size: 1.25rem;
+    color: #1F2937;
+    /* Darker Text */
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.header-number {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #374151;
+    /* Number text color */
+}
+
+.header-side-bar {
+    width: 6px;
+    height: 100%;
+    margin-left: 15px;
+    /* Gap from text */
+}
+
+.bar-red {
+    background-color: #B91C1C;
+    /* Deep Red */
+}
+
+.bar-blue {
+    background-color: #1D4ED8;
+    /* Blue */
+}
+
+/* Content Area */
+.new-section-content {
+    padding: 0 var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Vertical gap between rows */
+}
+
+/* Field Rows */
+.field-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E7EB;
+    /* Very light border */
+    padding-bottom: 25px;
+    /* Spacing below content before border */
+    margin-bottom: 5px;
+}
+
+.field-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.field-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.two-col .field-group {
+    width: 48%;
+    /* Split roughly in half with gap */
+}
+
+.field-label-en {
+    text-align: left;
+    color: var(--color-text-label-en);
+    font-weight: 500;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.field-value-center {
+    text-align: center;
+    color: #111827;
+    /* Dark Black/Gray */
+    font-weight: 700;
+    font-size: 1rem;
+    flex: 2;
+    /* Value takes more space in center */
+}
+
+.field-label-ar {
+    text-align: right;
+    color: var(--color-text-label-en);
+    font-weight: 500;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+/* Specific overrides for cleaner look if needed */
+.two-col {
+    gap: var(--spacing-xl);
+}
+
+
+
+/* ========================================
+   RETURN OF TEMP REPLACEMENTS (Section 5)
+   ======================================== */
+.return-section {
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl;
+    /* Ensure RTL flow */
+}
+
+.return-text-group {
+    flex: 1;
+    text-align: right;
+    padding-left: 20px;
+}
+
+.return-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #374151;
+    /* Gray-700 */
+}
+
+.return-checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+
+/* ========================================
+   AUTHENTICATION & RECEIPT (Section 6)
+   ======================================== */
+.auth-grid {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-xl);
+    direction: rtl;
+    /* RTL direction for full section */
+    gap: 40px;
+}
+
+.auth-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #111827;
+    /* Gray-900 */
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.auth-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.auth-label {
+    font-size: 0.95rem;
+    color: #6B7280;
+    /* Gray-500 */
+    font-weight: 600;
+    min-width: 50px;
+    /* Small alignment base */
+}
+
+.dashed-line {
+    font-family: monospace;
+    font-weight: 700;
+    color: #9CA3AF;
+    letter-spacing: 2px;
+}
+
+.auth-value {
+    font-weight: 700;
+    color: #111827;
+    font-size: 1rem;
+    font-family: sans-serif;
+    direction: ltr;
+    /* Dates often look better LTR */
+}
+
+.signature-field {
+    align-items: flex-start;
+}
+
+.qr-code-placeholder {
+    width: 60px;
+    height: 60px;
+}
+
+.auth-qr {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Responsive for Auth */
+@media screen and (max-width: 768px) {
+    .auth-grid {
+        flex-direction: column;
+        gap: 30px;
+        padding: var(--spacing-md);
+    }
+
+    .return-section {
+        flex-direction: column-reverse;
+        /* Stack Checkbox on top or bottom? Image has checkbox left. */
+        gap: 15px;
+        text-align: center;
+        padding: var(--spacing-md);
+        align-items: center;
+    }
+
+    .return-text-group {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+/* ========================================
+   DELIVERY DETAILS (Section 4)
+   ======================================== */
+.delivery-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.no-x-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.d-table-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 15px 0;
+    background-color: #F9FAFB;
+}
+
+.d-table-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 20px 0;
+}
+
+.d-table-row:last-child {
+    border-bottom: none;
+}
+
+/* Columns */
+.d-col {
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.index-col {
+    width: 40px;
+    align-items: center;
+}
+
+.item-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Arabic aligns right */
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.qty-col {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #E5E7EB;
+    border-right: 1px solid #E5E7EB;
+}
+
+.work-col {
+    width: 350px;
+    border-right: none;
+}
+
+/* Header Text */
+.d-header-ar {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #9CA3AF;
+    text-align: center;
+    width: 100%;
+}
+
+.d-header-en {
+    display: block;
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    text-align: center;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.item-col .d-header-ar,
+.item-col .d-header-en {
+    text-align: right;
+}
+
+/* Row Values */
+.index-value {
+    font-weight: 700;
+    color: #6B7280;
+    font-size: 1rem;
+}
+
+.item-name {
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.qty-value {
+    font-weight: 700;
+    color: #6B7280;
+    font-size: 1.1rem;
+}
+
+/* Checkboxes */
+.work-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: default;
+}
+
+.cb-label {
+    font-size: 1rem;
+    color: #6B7280;
+    font-weight: 600;
+}
+
+.custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #E5E7EB;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background-color: white;
+}
+
+.custom-checkbox.checked {
+    border-color: #22C55E;
+    /* Green Border */
+    color: #22C55E;
+    /* Green Check */
+}
+
+.custom-checkbox svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+
+    .contract-header {
+        padding: var(--spacing-md);
+    }
+
+    .header__logo img {
+        height: 50px;
+    }
+
+    .report-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+
+    .report-header__title-block {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .report-header__titles {
+        align-items: center;
+    }
+
+    /* New Responsive Styles */
+    .field-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .field-row.two-col {
+        flex-direction: column;
+    }
+
+    .two-col .field-group {
+        width: 100%;
+    }
+
+    .field-label-en,
+    .field-label-ar {
+        text-align: center;
+    }
+
+    /* .new-section-content {
+        padding: 0 var(--spacing-md);
+    } */
+
+    .new-section-header {
+        padding: 0 var(--spacing-md);
+        height: auto;
+        min-height: 50px;
+        align-items: center;
+    }
+
+    .header-left {
+        padding-left: 0;
+    }
+
+    .header-en {
+        font-size: 1rem;
+    }
+
+    .header-ar {
+        font-size: 1rem;
+    }
+
+    /* Delivery Table Responsive - Scrollable */
+    #section-04 .new-section-content {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+
+    .delivery-table {
+        min-width: 700px;
+        /* Ensure table keeps its layout shape */
+    }
+
+    /* Reset previous stacking if any overrides remain, 
+       but primarily just ensure header is visible */
+    .d-table-header {
+        display: flex;
+    }
+
+
+}
+
+/* Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    .contract-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .header__logo img {
+        height: 45px;
+    }
+
+    .contract-content {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .contract-container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .new-section-header {
+        background-color: #EEEFF1 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .header-side-bar {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
