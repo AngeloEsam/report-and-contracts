@@ -128,6 +128,9 @@ export interface Contract3SimpleDto {
     clientName: string;
     approvalDate: string;
 
+    // Section 4: Main Recommendation
+    mainRecommendation?: string;
+
     // QR Code Employee IDs
     consumerEmployeeId?: string;
     providerEmployeeId?: string;
@@ -238,7 +241,9 @@ export interface Contract5BoqRow {
 }
 
 export interface Contract5RepeatedDto {
-    boqRows: Contract5BoqRow[];
+    boqRowsFireAlarm?: Contract5BoqRow[];
+    boqRowsFireFighting?: Contract5BoqRow[];
+    boqRowsExitSafety?: Contract5BoqRow[];
 }
 
 export interface Contract5RequestDto {

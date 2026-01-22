@@ -1649,3 +1649,34 @@ img {
         padding-top: var(--spacing-xs);
     }
 }
+
+/* ----------------------------------------
+   CHECKBOX STYLES FOR ASSEMBLY SECTION
+---------------------------------------- */
+.option-checkbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #D1D5DB;
+    border-radius: 3px;
+    background-color: #fff;
+    vertical-align: middle;
+    position: relative;
+}
+
+/* Checked state - green with checkmark */
+.option-checkbox.checked {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+.option-checkbox.checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}

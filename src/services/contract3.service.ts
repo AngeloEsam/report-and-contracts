@@ -116,12 +116,37 @@ export class Contract3Service {
             });
         }
 
+        // Process assembly rows with checkbox conversion (0/1 to CSS class)
         if (data.repeated.assembly && data.repeated.assembly.length > 0) {
-            repeatedReplacements.push({
-                repeatedTempletePath: `${TEMPLATE_BASE_PATH}/assemblyRow.html`,
-                placeholder: 'assembly',
-                changeable: data.repeated.assembly
-            });
+            const assemblyRowTemplate = fs.readFileSync(`${TEMPLATE_BASE_PATH}/assemblyRow.html`, 'utf-8');
+            let assemblyHtml = '';
+
+            for (const row of data.repeated.assembly) {
+                const values = row.value;
+                // Convert checkbox values: indices 2, 4, 6 are checkbox states (0/1)
+                // Convert to CSS class: 1 = "checked", 0 = ""
+                const convertCheckbox = (val: string): string => {
+                    return (val === '1' || val === 'true' || val === 'checked') ? 'checked' : '';
+                };
+
+                let rowHtml = assemblyRowTemplate
+                    .replace('[[1]]', values[0] || '')   // criteria title
+                    .replace('[[2]]', values[1] || '')   // option 1 label
+                    .replace('[[3]]', convertCheckbox(values[2] || ''))  // option 1 checkbox
+                    .replace('[[4]]', values[3] || '')   // option 2 label
+                    .replace('[[5]]', convertCheckbox(values[4] || ''))  // option 2 checkbox
+                    .replace('[[6]]', values[5] || '')   // option 3 label
+                    .replace('[[7]]', convertCheckbox(values[6] || ''))  // option 3 checkbox
+                    .replace('[[8]]', values[7] || '')   // engineer notes
+                    .replace('[[9]]', values[8] || '');  // hide row 3 class
+
+                assemblyHtml += rowHtml;
+            }
+
+            await templateService.replaceContent([{
+                searchKey: 'assembly',
+                value: assemblyHtml
+            }]);
         }
 
         if (repeatedReplacements.length > 0) {

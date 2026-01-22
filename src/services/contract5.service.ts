@@ -34,22 +34,13 @@ export class Contract5Service {
 
         await templateService.replaceContent(simpleReplacements);
 
-        if (data.repeated.boqRows && data.repeated.boqRows.length > 0) {
-            // Read the system title template
-            const systemTitleTemplate = fs.readFileSync(`${TEMPLATE_BASE_PATH}/boqSystemTitle.html`, 'utf-8');
+        // Helper function to generate BOQ rows HTML
+        const generateBoqRowsHtml = (rows: { value: (string | string[])[] }[]): string => {
             const boqRowTemplate = fs.readFileSync(`${TEMPLATE_BASE_PATH}/boqRow.html`, 'utf-8');
-
-            let allBoqHtml = '';
+            let rowsHtml = '';
             let rowIndex = 1;
 
-            // Transform the data to match the template and render list for description
-            for (const row of data.repeated.boqRows) {
-                // If there's a system title, add it first
-                if (row.systemTitle) {
-                    allBoqHtml += systemTitleTemplate.replace('[[systemTitle]]', row.systemTitle);
-                    rowIndex = 1; // Reset row index for new system
-                }
-
+            for (const row of rows) {
                 const item = row.value[0] as string;
                 const descriptions = row.value[1]; // Array of strings or string
                 const qty = row.value[2] as string;
@@ -77,15 +68,35 @@ export class Contract5Service {
                     .replace('[[5]]', item || '')
                     .replace('[[6]]', rowIndex.toString());
 
-                allBoqHtml += rowHtml;
+                rowsHtml += rowHtml;
                 rowIndex++;
             }
 
-            // Replace the [[boqRows]] placeholder with all generated HTML
-            await templateService.replaceContent([{
-                searchKey: 'boqRows',
-                value: allBoqHtml
-            }]);
+            return rowsHtml;
+        };
+
+        // Process Fire Alarm System rows
+        if (data.repeated.boqRowsFireAlarm && data.repeated.boqRowsFireAlarm.length > 0) {
+            const fireAlarmHtml = generateBoqRowsHtml(data.repeated.boqRowsFireAlarm);
+            await templateService.replaceContent([{ searchKey: 'boqRowsFireAlarm', value: fireAlarmHtml }]);
+        } else {
+            await templateService.replaceContent([{ searchKey: 'boqRowsFireAlarm', value: '' }]);
+        }
+
+        // Process Fire Fighting System rows
+        if (data.repeated.boqRowsFireFighting && data.repeated.boqRowsFireFighting.length > 0) {
+            const fireFightingHtml = generateBoqRowsHtml(data.repeated.boqRowsFireFighting);
+            await templateService.replaceContent([{ searchKey: 'boqRowsFireFighting', value: fireFightingHtml }]);
+        } else {
+            await templateService.replaceContent([{ searchKey: 'boqRowsFireFighting', value: '' }]);
+        }
+
+        // Process Exit Safety rows
+        if (data.repeated.boqRowsExitSafety && data.repeated.boqRowsExitSafety.length > 0) {
+            const exitSafetyHtml = generateBoqRowsHtml(data.repeated.boqRowsExitSafety);
+            await templateService.replaceContent([{ searchKey: 'boqRowsExitSafety', value: exitSafetyHtml }]);
+        } else {
+            await templateService.replaceContent([{ searchKey: 'boqRowsExitSafety', value: '' }]);
         }
 
         const uniqueId = `${Date.now()}_${Math.random().toString(36).substring(7)}`;
