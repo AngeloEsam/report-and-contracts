@@ -554,7 +554,7 @@ img {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
-    white-space: nowrap;
+    white-space: normal;
     flex-shrink: 0;
     width: 25%;
     /* Balanced width */

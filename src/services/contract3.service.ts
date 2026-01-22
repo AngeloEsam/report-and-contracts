@@ -1,5 +1,5 @@
 
-import { Contract3RequestDto } from '../types/contract.types';
+import { Contract3RequestDto, Contract3InspectionRow } from '../types/contract.types';
 import * as path from 'path';
 import * as fs from 'fs';
 import ContractTemplateService from '../utilities/contract-and-report/logic/contractTemplate.service';
@@ -34,32 +34,79 @@ export class Contract3Service {
 
         await templateService.replaceContent(simpleReplacements);
 
-        // Replace repeated content
-        const repeatedReplacements = [];
+        // Read inspection row template
+        const inspectionRowTemplate = fs.readFileSync(`${TEMPLATE_BASE_PATH}/inspectionRow.html`, 'utf-8');
 
+        // Process inspection rows - convert boolean values to icons
+        const processInspectionRows = (rows: Contract3InspectionRow[]) => {
+            let html = '';
+            for (const row of rows) {
+                const item = row.value[0];
+                const total = row.value[1];
+                const working = row.value[2];
+                const broken = row.value[3];
+                const checklistItems = row.value[4];
+
+                // Generate checklist items HTML dynamically (only for existing items)
+                let checklistHtml = '';
+                if (checklistItems && checklistItems.length > 0) {
+                    for (const checkItem of checklistItems) {
+                        const desc = checkItem[0] as string || '';
+                        const classification = checkItem[1] as string || '';
+                        const status = checkItem[2];
+
+                        // Convert status to icon and class
+                        const isPass = status === true || status === 1 || status === "1" || status === "true";
+                        const icon = isPass ? '✓' : '✗';
+                        const iconClass = isPass ? 'icon-check' : 'icon-cross';
+                        const rowBgClass = isPass ? '' : 'detail-item--fail';
+
+                        checklistHtml += `
+                        <div class="detail-item ${rowBgClass}">
+                            <div class="detail-col col-desc">• ${desc}</div>
+                            <div class="detail-col col-class">${classification}</div>
+                            <div class="detail-col col-status"><span class="status-icon ${iconClass}">${icon}</span></div>
+                        </div>`;
+                    }
+                }
+
+                // Generate row HTML
+                let rowHtml = inspectionRowTemplate
+                    .replace('[[1]]', item)
+                    .replace('[[2]]', total)
+                    .replace('[[3]]', working)
+                    .replace('[[4]]', broken)
+                    .replace('[[checklistHtml]]', checklistHtml);
+
+                html += rowHtml;
+            }
+            return html;
+        };
+
+        // Replace inspection placeholders
         if (data.repeated.inspectionAlarm && data.repeated.inspectionAlarm.length > 0) {
-            repeatedReplacements.push({
-                repeatedTempletePath: `${TEMPLATE_BASE_PATH}/inspectionRow.html`,
-                placeholder: 'inspectionAlarm',
-                changeable: data.repeated.inspectionAlarm
-            });
+            await templateService.replaceContent([{
+                searchKey: 'inspectionAlarm',
+                value: processInspectionRows(data.repeated.inspectionAlarm)
+            }]);
         }
 
         if (data.repeated.inspectionFighting && data.repeated.inspectionFighting.length > 0) {
-            repeatedReplacements.push({
-                repeatedTempletePath: `${TEMPLATE_BASE_PATH}/inspectionRow.html`,
-                placeholder: 'inspectionFighting',
-                changeable: data.repeated.inspectionFighting
-            });
+            await templateService.replaceContent([{
+                searchKey: 'inspectionFighting',
+                value: processInspectionRows(data.repeated.inspectionFighting)
+            }]);
         }
 
         if (data.repeated.inspectionEscape && data.repeated.inspectionEscape.length > 0) {
-            repeatedReplacements.push({
-                repeatedTempletePath: `${TEMPLATE_BASE_PATH}/inspectionRow.html`,
-                placeholder: 'inspectionEscape',
-                changeable: data.repeated.inspectionEscape
-            });
+            await templateService.replaceContent([{
+                searchKey: 'inspectionEscape',
+                value: processInspectionRows(data.repeated.inspectionEscape)
+            }]);
         }
+
+        // Replace repeated content for faults and assembly
+        const repeatedReplacements: { repeatedTempletePath: string; placeholder: string; changeable: { value: string[] }[] }[] = [];
 
         if (data.repeated.faults && data.repeated.faults.length > 0) {
             repeatedReplacements.push({

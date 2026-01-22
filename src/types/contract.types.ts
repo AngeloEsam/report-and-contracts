@@ -133,10 +133,18 @@ export interface Contract3SimpleDto {
     providerEmployeeId?: string;
 }
 
+// Checklist item: [description, classification, isPass (true/false or 1/0)]
+export type Contract3ChecklistItem = [string, string, boolean | number | string];
+
+// Inspection row value: [item, total, working, broken, checklistItems[]]
+export interface Contract3InspectionRow {
+    value: [string, string, string, string, Contract3ChecklistItem[]];
+}
+
 export interface Contract3RepeatedDto {
-    inspectionAlarm: { value: string[] }[];
-    inspectionFighting: { value: string[] }[];
-    inspectionEscape: { value: string[] }[];
+    inspectionAlarm: Contract3InspectionRow[];
+    inspectionFighting: Contract3InspectionRow[];
+    inspectionEscape: Contract3InspectionRow[];
     faults: { value: string[] }[];
     assembly: { value: string[] }[];
 }
@@ -224,8 +232,13 @@ export interface Contract5SimpleDto {
     providerEmployeeId?: string;
 }
 
+export interface Contract5BoqRow {
+    value: (string | string[])[]; // [Item, Descriptions[], Qty, UnitPrice, Total]
+    systemTitle?: string; // Optional: e.g., "2. نظام مكافحة الحریق (Fire Fighting System)"
+}
+
 export interface Contract5RepeatedDto {
-    boqRows: { value: string[] }[];
+    boqRows: Contract5BoqRow[];
 }
 
 export interface Contract5RequestDto {
