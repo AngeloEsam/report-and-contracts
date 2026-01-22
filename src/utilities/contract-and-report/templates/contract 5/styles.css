@@ -894,14 +894,15 @@ img {
 /* Header */
 .boq-table-header {
     display: grid;
-    /* Columns: Total | Unit Price | Count | Desc | Item | Index */
-    /* Adjust ratios based on content */
-    grid-template-columns: 12% 12% 10% 35% 25% 6%;
+    /* Columns: Index | Item | Desc | Count | Unit Price | Total */
+    /* M (6%) | Item (25%) | Desc (35%) | Qty (10%) | Price (12%) | Total (12%) */
+    grid-template-columns: 6% 25% 35% 10% 12% 12%;
     background-color: #F4FBFF;
     /* Light gray/blue bg */
     border-bottom: 2px solid #e2e8f0;
     padding: var(--spacing-sm) 0;
     text-align: center;
+    direction: rtl;
 }
 
 .header-cell {
@@ -949,12 +950,13 @@ img {
 /* Data Rows */
 .boq-row {
     display: grid;
-    grid-template-columns: 12% 12% 10% 35% 25% 6%;
+    grid-template-columns: 6% 25% 35% 10% 12% 12%;
     padding: var(--spacing-md) 0;
     border-bottom: 1px solid #f1f5f9;
     align-items: start;
     /* Align to top for multi-line content */
     background-color: white;
+    direction: rtl;
 }
 
 .boq-row:last-child {
@@ -1021,7 +1023,7 @@ img {
     }
 }
 
-/* Detail Item Styling */
+/* Detail Item Styling - Replaced by description-list but keeping for backward compatibility if needed */
 .detail-item {
     background-color: #FFF5F5;
     border-radius: 4px;
@@ -1032,4 +1034,33 @@ img {
     text-align: right;
     margin-bottom: 4px;
     box-sizing: border-box;
+}
+
+/* New Description List Styles */
+.description-list {
+    list-style-type: disc;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-right: 20px;
+    direction: rtl;
+}
+
+.description-list li {
+    background-color: #FEF2F2;
+    /* Light Red Background */
+    border-radius: 2px;
+    padding: 4px 12px;
+    text-align: right;
+    direction: rtl;
+    font-size: 0.85rem;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+.description-list li::marker {
+    color: #9CA3AF;
 }
