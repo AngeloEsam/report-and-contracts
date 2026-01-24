@@ -130,15 +130,12 @@ export class Contract3Service {
                 };
 
                 let rowHtml = assemblyRowTemplate
-                    .replace('[[1]]', values[0] || '')   // criteria title
-                    .replace('[[2]]', values[1] || '')   // option 1 label
-                    .replace('[[3]]', convertCheckbox(values[2] || ''))  // option 1 checkbox
-                    .replace('[[4]]', values[3] || '')   // option 2 label
-                    .replace('[[5]]', convertCheckbox(values[4] || ''))  // option 2 checkbox
-                    .replace('[[6]]', values[5] || '')   // option 3 label
-                    .replace('[[7]]', convertCheckbox(values[6] || ''))  // option 3 checkbox
-                    .replace('[[8]]', values[7] || '')   // engineer notes
-                    .replace('[[9]]', values[8] || '');  // hide row 3 class
+                    .replace('[[1]]', convertCheckbox(values[0] || ''))  // option 1 checkbox
+                    .replace('[[2]]', convertCheckbox(values[1] || ''))  // option 2 checkbox
+                    .replace('[[3]]',convertCheckbox(values[2] || ''))
+                    .replace('[[4]]',convertCheckbox(values[3] || ''))
+                    .replace('[[5]]',convertCheckbox(values[4] || ''))
+                    .replace('[[6]]',values[5] || '')
 
                 assemblyHtml += rowHtml;
             }
