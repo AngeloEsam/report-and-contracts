@@ -34,8 +34,13 @@ export class Contract5Service {
 
         await templateService.replaceContent(simpleReplacements);
 
-        // Helper function to generate BOQ rows HTML
-        const generateBoqRowsHtml = (rows: { value: (string | string[])[] }[]): string => {
+        // Helper variable for section numbering
+        let sectionCounter = 1;
+
+        // Helper function to generate BOQ rows HTML with Section Title
+        const generateSectionHtml = (rows: { value: (string | string[])[] }[] | undefined, titleAr: string, titleEn: string): string => {
+            if (!rows || rows.length === 0) return '';
+
             const boqRowTemplate = fs.readFileSync(`${TEMPLATE_BASE_PATH}/boqRow.html`, 'utf-8');
             let rowsHtml = '';
             let rowIndex = 1;
@@ -72,32 +77,41 @@ export class Contract5Service {
                 rowIndex++;
             }
 
-            return rowsHtml;
+            // Generate Section Header
+            const sectionHeader = `
+            <div class="boq-section-title">
+                <span class="boq-section-number">${sectionCounter}.</span>
+                <span class="boq-section-name-ar">${titleAr}</span>
+                <span class="boq-section-name-en">(${titleEn})</span>
+            </div>`;
+
+            sectionCounter++;
+            return sectionHeader + rowsHtml;
         };
 
         // Process Fire Alarm System rows
-        if (data.repeated.boqRowsFireAlarm && data.repeated.boqRowsFireAlarm.length > 0) {
-            const fireAlarmHtml = generateBoqRowsHtml(data.repeated.boqRowsFireAlarm);
-            await templateService.replaceContent([{ searchKey: 'boqRowsFireAlarm', value: fireAlarmHtml }]);
-        } else {
-            await templateService.replaceContent([{ searchKey: 'boqRowsFireAlarm', value: '' }]);
-        }
+        const fireAlarmHtml = generateSectionHtml(
+            data.repeated.boqRowsFireAlarm,
+            'نظام الإنذار المبكر',
+            'Fire Alarm System'
+        );
+        await templateService.replaceContent([{ searchKey: 'boqRowsFireAlarm', value: fireAlarmHtml }]);
 
         // Process Fire Fighting System rows
-        if (data.repeated.boqRowsFireFighting && data.repeated.boqRowsFireFighting.length > 0) {
-            const fireFightingHtml = generateBoqRowsHtml(data.repeated.boqRowsFireFighting);
-            await templateService.replaceContent([{ searchKey: 'boqRowsFireFighting', value: fireFightingHtml }]);
-        } else {
-            await templateService.replaceContent([{ searchKey: 'boqRowsFireFighting', value: '' }]);
-        }
+        const fireFightingHtml = generateSectionHtml(
+            data.repeated.boqRowsFireFighting,
+            'نظام مكافحة الحريق',
+            'Fire Fighting System'
+        );
+        await templateService.replaceContent([{ searchKey: 'boqRowsFireFighting', value: fireFightingHtml }]);
 
         // Process Exit Safety rows
-        if (data.repeated.boqRowsExitSafety && data.repeated.boqRowsExitSafety.length > 0) {
-            const exitSafetyHtml = generateBoqRowsHtml(data.repeated.boqRowsExitSafety);
-            await templateService.replaceContent([{ searchKey: 'boqRowsExitSafety', value: exitSafetyHtml }]);
-        } else {
-            await templateService.replaceContent([{ searchKey: 'boqRowsExitSafety', value: '' }]);
-        }
+        const exitSafetyHtml = generateSectionHtml(
+            data.repeated.boqRowsExitSafety,
+            'الهروب والسلامة الإضافية',
+            'Exit & Safety'
+        );
+        await templateService.replaceContent([{ searchKey: 'boqRowsExitSafety', value: exitSafetyHtml }]);
 
         const uniqueId = `${Date.now()}_${Math.random().toString(36).substring(7)}`;
         const tempHtmlPath = path.resolve(`${TEMPLATE_BASE_PATH}/temp_${uniqueId}.html`);

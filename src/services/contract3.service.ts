@@ -20,11 +20,31 @@ export class Contract3Service {
             data.simple.providerEmployeeId
         );
 
+        // Helper function to convert newlines to HTML list items
+        const formatAsListItems = (text: string | undefined): string => {
+            if (!text) return '';
+            return text
+                .split('\n')
+                .map(line => line.trim())
+                .filter(line => line.length > 0)
+                .map(line => `<li>${line}</li>`)
+                .join('');
+        };
+
         // Replace simple placeholders
-        const simpleReplacements = Object.entries(data.simple).map(([key, value]) => ({
-            searchKey: key,
-            value: value || ''
-        }));
+        const simpleReplacements = Object.entries(data.simple).map(([key, value]) => {
+            // Special handling for details and description - format as list items
+            if (key === 'details' || key === 'description') {
+                return {
+                    searchKey: key,
+                    value: formatAsListItems(value as string)
+                };
+            }
+            return {
+                searchKey: key,
+                value: value || ''
+            };
+        });
 
         // Add QR code replacements
         simpleReplacements.push(
@@ -132,10 +152,10 @@ export class Contract3Service {
                 let rowHtml = assemblyRowTemplate
                     .replace('[[1]]', convertCheckbox(values[0] || ''))  // option 1 checkbox
                     .replace('[[2]]', convertCheckbox(values[1] || ''))  // option 2 checkbox
-                    .replace('[[3]]',convertCheckbox(values[2] || ''))
-                    .replace('[[4]]',convertCheckbox(values[3] || ''))
-                    .replace('[[5]]',convertCheckbox(values[4] || ''))
-                    .replace('[[6]]',values[5] || '')
+                    .replace('[[3]]', convertCheckbox(values[2] || ''))
+                    .replace('[[4]]', convertCheckbox(values[3] || ''))
+                    .replace('[[5]]', convertCheckbox(values[4] || ''))
+                    .replace('[[6]]', values[5] || '')
 
                 assemblyHtml += rowHtml;
             }

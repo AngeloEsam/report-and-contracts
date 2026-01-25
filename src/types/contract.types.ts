@@ -131,6 +131,10 @@ export interface Contract3SimpleDto {
     // Section 4: Main Recommendation
     mainRecommendation?: string;
 
+    // Section 5: Engineering Recommendations
+    details: string; // Observations Detailed
+    description: string; // Actions Corrective & Recommendations
+
     // QR Code Employee IDs
     consumerEmployeeId?: string;
     providerEmployeeId?: string;
